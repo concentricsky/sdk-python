@@ -236,18 +236,6 @@ class APIOperationBase(APIOperationBaseInterface):
         
         APIOperationBase.setmerchantauthentication(__merchantauthentication)
 
-        if ( False == APIOperationBase.__classinitialized()):
-            loggingfilename = utility.helper.getproperty(constants.propertiesloggingfilename)
-            logginglevel = utility.helper.getproperty(constants.propertiesexecutionlogginglevel)
-            
-            if (None == loggingfilename):
-                loggingfilename = constants.defaultLogFileName
-            if (None == logginglevel):
-                logginglevel = constants.defaultLoggingLevel
-                
-            logging.basicConfig(filename=loggingfilename, level=logginglevel, format=constants.defaultlogformat)
-            __initialized = True
-
         self.validate()
             
         return
